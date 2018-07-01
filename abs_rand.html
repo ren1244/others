@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>計算</title>
+	<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  SVG: {
+    scale: 100
+  }
+});
+</script>
+	<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<!-- -->	
+</head>
+<body style="max-width:960px;margin:0px auto;background-color:lightgray">
+<div style="background-color:white;padding:1em">
+<p>若 <math display="inline"><msub><mi>r</mi><mn>1</mn></msub></math>、<math display="inline"><msub><mi>r</mi><mn>2</mn></msub></math> 為 <math display="inline"><mo>[</mo><mn>0</mn><mo>,</mo><mi>n</mi><mo>)</mo></math> 區間的亂數，
+定義 <math display="inline"><mi>x</mi><mo>=</mo><mo>|</mo><msub><mi>r</mi><mn>1</mn></msub><mo>-</mo><msub><mi>r</mi><mn>2</mn></msub><mo>|</mo></math> 為取得的亂數，
+則數對 <math display="inline"><mfenced open="(" close=")" separators=","><msub><mi>r</mi><mn>1</mn></msub><msub><mi>r</mi><mn>2</mn></msub></mfenced></math> 共有 <math display="inline"><msup><mi>n</mi><mn>2</mn></msup></math> 種狀況。</p>
+出現 <math display="inline"><mi>x</mi></math> 的次數 <math display="inline"><mi>count</mi><mfenced open="(" close=")" separators=","><mi>x</mi></mfenced></math> 為：
+
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+<mrow>
+  <mi>count</mi>
+  <mfenced open="(" close=")" separators=",">
+    <mrow>
+      <mi>x</mi>
+    </mrow>
+  </mfenced>
+  <mo>=</mo>
+  <mo>{</mo>
+  <mtable  columnalign="left">
+    <mtr>
+      <mtd>
+        <mi>n</mi>
+      </mtd>
+      <mtd>
+        <mo>&CenterDot;&CenterDot;&CenterDot;</mo>
+        <mspace width="0.5em"></mspace>
+        <mi>x</mi>
+        <mo>=</mo>
+        <mn>0</mn>
+      </mtd>
+    </mtr>
+    <mtr>
+      <mtd>
+        <mn>2</mn>
+        <mfenced open="(" close=")" separators=",">
+          <mrow>
+            <mi>n</mi>
+            <mo>-</mo>
+            <mi>x</mi>
+          </mrow>
+        </mfenced>
+      </mtd>
+      <mtd>
+        <mo>&CenterDot;&CenterDot;&CenterDot;</mo>
+        <mspace width="0.5em"></mspace>
+        <mn>0</mn>
+        <mo>&lt;</mo>
+        <mi>x</mi>
+        <mo>&lt;</mo>
+        <mi>n</mi>
+      </mtd>
+    </mtr>
+  </mtable>
+</mrow>
+</math>
+<p>若取樣 <math display="inline"><mi>m</mi></math> 次，則出現 <math display="inline"><mi>x</mi></math> 的次數期望值為 <math display="inline"><mi>m</mi><mo>&CenterDot;</mo><mfrac><mrow><mi>count</mi><mfenced open="(" close=")" separators=","><mi>x</mi></mfenced></mrow><msup><mi>n</mi><mn>2</mn></msup></mfrac></math> ，可計算平均值 <math display="inline"><mrow><mover accent="true"><mi>x</mi><mo>&macr;</mo></mover></mrow>
+</math>：</p>
+<math display="block">
+<mrow>
+  <mrow><mover accent="true"><mi>x</mi><mo>&macr;</mo></mover>
+  <mo>=</mo>
+  <mfrac>
+      <mrow><mn>1</mn></mrow>
+      <mrow><mi>m</mi></mrow>
+  </mfrac>
+  <mfenced open="(" close=")" separators=",">
+  <mrow>
+  <mrow>
+    <mn>0</mn>
+    <mo>&CenterDot;</mo>
+    <mi>n</mi>
+    <mo>+</mo>
+    <munderover>
+            <mo>&Sum;</mo>
+        <mrow>
+          <mi>x</mi>
+          <mo>=</mo>
+          <mn>1</mn>
+        </mrow>
+        <mrow>
+          <mi>n</mi>
+          <mo>-</mo>
+          <mn>1</mn>
+        </mrow>
+    </munderover>
+    <mi>x</mi>
+    <mo>&CenterDot;</mo>
+    <mi>m</mi>
+    <mo>&CenterDot;</mo>
+    <mfrac>
+      <mrow>
+        <mn>2</mn>
+        <mfenced open="(" close=")" separators=",">
+          <mrow>
+            <mi>n</mi>
+            <mo>-</mo>
+            <mi>x</mi>
+          </mrow>
+        </mfenced>
+      </mrow>
+      <mrow>
+        <msup>
+                <mi>n</mi>
+              <mn>2</mn>
+        </msup>
+      </mrow>
+    </mfrac>
+  </mrow>
+  </mrow>
+  </mfenced>
+  <mo>=</mo>
+  <mfrac>
+    <mrow>
+      <msup>
+              <mi>n</mi>
+            <mn>2</mn>
+      </msup>
+      <mo>-</mo>
+      <mn>1</mn>
+    </mrow>
+    <mrow>
+      <mn>3</mn>
+      <mi>n</mi>
+    </mrow>
+  </mfrac>
+</mrow>
+</math>
+以及標準差：
+<math display="block">
+  <mi>stddev</mi>
+  <mo id='equals'>=</mo>
+  <msqrt>
+    <mfrac>
+      <mrow>
+        <mn>1</mn>
+      </mrow>
+      <mrow>
+        <mi>m</mi>
+      </mrow>
+    </mfrac>
+    <munderover>
+            <mo>&Sum;</mo>
+        <mrow>
+          <mi>x</mi>
+          <mo>=</mo>
+          <mn>1</mn>
+        </mrow>
+        <mrow>
+          <mi>n</mi>
+          <mo>-</mo>
+          <mn>1</mn>
+        </mrow>
+    </munderover>
+    <msup>
+            <mi>x</mi>
+          <mn>2</mn>
+    </msup>
+    <mo>&CenterDot;</mo>
+    <mfrac>
+      <mrow>
+        <mn>2</mn>
+        <mi>m</mi>
+        <mfenced open="(" close=")" separators=",">
+          <mrow>
+            <mi>n</mi>
+            <mo>-</mo>
+            <mi>x</mi>
+          </mrow>
+        </mfenced>
+      </mrow>
+      <mrow>
+        <msup>
+                <mi>n</mi>
+              <mn>2</mn>
+        </msup>
+      </mrow>
+    </mfrac>
+    <mo>-</mo>
+    <msup>
+          <mrow>
+            <mover accent="true">
+                    <mi>x</mi>
+                  <mo>&macr;</mo>
+            </mover>
+          </mrow>
+          <mn>2</mn>
+    </msup>
+  </msqrt>
+  <mo>=</mo>
+  <msqrt>
+    <mfrac>
+      <mrow>
+        <msup>
+                <mi>n</mi>
+              <mn>2</mn>
+        </msup>
+        <mo>-</mo>
+        <mn>1</mn>
+      </mrow>
+      <mrow>
+        <mn>6</mn>
+      </mrow>
+    </mfrac>
+    <mo>-</mo>
+    <msup>
+          <mrow>
+            <mfenced open="(" close=")" separators=",">
+              <mrow>
+                <mfrac>
+                  <mrow>
+                    <msup>
+                            <mi>n</mi>
+                          <mn>2</mn>
+                    </msup>
+                    <mo>-</mo>
+                    <mn>1</mn>
+                  </mrow>
+                  <mrow>
+                    <mn>3</mn>
+                    <mi>n</mi>
+                  </mrow>
+                </mfrac>
+              </mrow>
+            </mfenced>
+          </mrow>
+          <mn>2</mn>
+    </msup>
+  </msqrt>
+  <mo>=</mo>
+  <msqrt>
+    <mfrac>
+      <mrow>
+        <mfenced open="(" close=")" separators=",">
+          <mrow>
+            <msup>
+                    <mi>n</mi>
+                  <mn>2</mn>
+            </msup>
+            <mo>-</mo>
+            <mn>1</mn>
+          </mrow>
+        </mfenced>
+        <mfenced open="(" close=")" separators=",">
+          <mrow>
+            <msup>
+                    <mi>n</mi>
+                  <mn>2</mn>
+            </msup>
+            <mo>+</mo>
+            <mn>2</mn>
+          </mrow>
+        </mfenced>
+      </mrow>
+      <mrow>
+        <mn>18</mn>
+        <msup>
+                <mi>n</mi>
+              <mn>2</mn>
+        </msup>
+      </mrow>
+    </mfrac>
+  </msqrt>
+</math>
+<hr>
+<p>所以若由 0~999 之間取兩亂數相減的絕對值為所得亂數</p>
+<p>會得到平均值</p>
+<math display="block">
+<mrow>
+  <mover accent="true">
+          <mi>x</mi>
+        <mo>&macr;</mo>
+  </mover>
+  <mo>=</mo>
+  <mfrac>
+    <mrow>
+      <msup>
+              <mn>1000</mn>
+            <mn>2</mn>
+      </msup>
+      <mo>-</mo>
+      <mn>1</mn>
+    </mrow>
+    <mrow>
+      <mn>3</mn>
+      <mo>&CenterDot;</mo>
+      <mn>1000</mn>
+    </mrow>
+  </mfrac>
+  <mo>=</mo>
+  <mn>333.333</mn>
+  <mo>&hellip;</mo>
+</mrow>
+</math>
+<p>以及標準差</p>
+<math display="block">
+
+	<mi>stddev</mi>
+  <mo id='equals'>=</mo>
+  <msqrt>
+    <mfrac>
+      <mrow>
+        <mfenced open="(" close=")" separators=",">
+          <mrow>
+            <msup>
+                  <mn>1000</mn>
+                  <mn>2</mn>
+            </msup>
+            <mo>-</mo>
+            <mn>1</mn>
+          </mrow>
+        </mfenced>
+        <mfenced open="(" close=")" separators=",">
+          <mrow>
+            <msup>
+                  <mn>1000</mn>
+                  <mn>2</mn>
+            </msup>
+            <mo>+</mo>
+            <mn>2</mn>
+          </mrow>
+        </mfenced>
+      </mrow>
+      <mrow>
+        <mn>18</mn>
+        <mo>&CenterDot;</mo>
+        <msup>
+              <mn>1000</mn>
+              <mn>2</mn>
+        </msup>
+      </mrow>
+    </mfrac>
+  </msqrt>
+  <mo>=</mo>
+  <mn>235.702</mn>
+  <mo>&hellip;</mo>
+</math>
+</div>
+</body>
+</html>

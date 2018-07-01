@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>排班系統</title>
+	<script src="area.js" type="text/javascript"></script>
+	<script src="myLib.js" type="text/javascript"></script>
+	<script src="person.js" type="text/javascript"></script>
+	<script src="main.js" type="text/javascript"></script>
+	<style type="text/css">
+		pre{display:inline-block;vertical-align:top;}
+		.aaa{ border-collapse:collapse;}
+		.aaa,.aaa tr,.aaa td{border:1px solid;padding:0.25em}
+	</style>
+</head>
+<body>
+	<table>
+		<tr><td>人員資料</td><td><input type="file" id="holiday"></td></tr>
+		<tr><td>值班紀錄</td><td><input type="file" id="history"></td></tr>
+		<tr>
+			<td><button onclick="run()">排班</button></td>
+			<td><a id="output"></a><br><a id="record"></a></td>
+		</tr>
+	</table>
+	
+	<hr>
+	<div id="preview"></div>
+	<div id="dbg"></div>
+	<textarea id="test" style="display:none"></textarea>
+</body>
+</html>
